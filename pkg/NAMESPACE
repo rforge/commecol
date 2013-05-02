@@ -1,0 +1,17 @@
+######### Export functions to users.
+export(autosimi, compas, 
+      part.m.phylo, part.p.phylo, 
+      select.window, 
+      treeNodf, treeNodf.test
+)
+
+
+######### Import function from other packages.
+import(vegan, picante)# entire packages imported.
+#importFrom(vegan, nestednodf) #only nestednodf from vegan is imported.
+
+
+
+######### S3 methods
+S3method(print, treeNodf) # one method per line
+S3method(print, treeNodf.test)
