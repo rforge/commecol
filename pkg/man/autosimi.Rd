@@ -2,7 +2,7 @@
 \alias{autosimi}
 \title{Autosimilarity curve of species community data}
 
-\description{Similarities among two subsamples, each one obtained randomly from the same community dataset. Curves are otained for all subsample sizes from 1 up to half the number of sample units in the dataset. Autosimilarity curves can be used to evaluate sample suficiency when sample size is expressed as number of sampling units such as traps or quadrats. This is particularly suitable when the study involves similarities or dissimilarities among samples such as agglomerative clustering, ordination, Mantel test}
+\description{Similarities among two subsamples, each one obtained randomly from the same community dataset. Curves are otained for all subsample sizes from 1 up to half the number of sample units in the dataset. Autosimilarity curves can be used to evaluate sample suficiency when sample size is expressed as number of sampling units such as traps or quadrats. This is particularly suitable when the study involves similarities or dissimilarities among samples such as agglomerative clustering, ordination, Mantel test.}
 
 \usage{
 autosimi(comm, method="bray", binary=FALSE, log.transf=FALSE, simi=TRUE, permutations=50)}

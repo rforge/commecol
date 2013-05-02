@@ -17,7 +17,7 @@ LazyLoad: \tab yes\cr
 Community Ecology Analyses. This should be a complement to available packages, particularly vegan.
 }
 \author{
-Adriano Sanches Melo
+Adriano Sanches Melo\cr
 Maintainer: Adriano Sanches Melo <asm.adrimelo@gmail.com>
 }
 \keyword{ package }

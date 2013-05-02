@@ -30,12 +30,12 @@ The position of the modal point in the gradient, parameter m (not available as a
 
 The parameter \code{beta} determines the range of occurrence of a given species in the gradient. In terms of diversity, it determines the turnover (beta diversity) along the gradient, and is expressed as R units, where R = 100/mean(r), and r are the ranges of species. Values of r are obtained from a normal distribution with mean 100*R and standard deviation of 0.3*100*R (the last one not available as argument).
 
-Species may be i) absent or ii) present in densities different from the expected due to sampling error, historical factors, or the influence of a multitude of environmental factors. Simulated communities are subject to these two types of errors or noise to mimic the two phenomena. The first phenomenon is achieved by randomly choosing \code{n.quali}*100% of non-zero values and replacing them by zeros. In order to obtain scattered values of abundances for each species along their gradients, each non-zero value is replaced by a random value obtained from a Poisson distribution with mean and variance (the lambda parameter) equal to the value to be replaced.
+Species may be i) absent or ii) present in densities different from the expected due to sampling error, historical factors, or the influence of a multitude of environmental factors. Simulated communities are subject to these two types of error or noise to mimic the two phenomena. The first phenomenon is achieved by randomly choosing \code{n.quali}*100\% of non-zero values and replacing them by zeros. In order to obtain scattered values of abundances for each species along their gradients, each non-zero value is replaced by a random value obtained from a Poisson distribution with mean and variance (the lambda parameter; not available as argument) equal to the value to be replaced.
 
-A third phenomenon commonly seen in field datasets is the occurrence of a species outside its regular range or in different habitats. These species are termed vagrant or marginal, and usually appear in the dataset with 1 individual. In order to account for this common finding, the function attaches to the simulated community an additional set of species with 1 individual, each species occurring in one sample unit only. The number of these additional species is set as \code{add1}*100% of the number of species sampled in the simulated communities after the inclusion of the two types of errors cited above.
+A third phenomenon commonly seen in field datasets is the occurrence of a species outside its regular range or in different habitats. These species are termed vagrant or marginal, and usually appear in the dataset with 1 individual. In order to account for this common finding, the function attaches to the simulated community an additional set of species with 1 individual, each species occurring in one sample unit only. The number of these additional species is set as \code{add1}*100\% of the number of species sampled in the simulated communities after the inclusion of the two types of errors cited above.
 }
 
-\value{A dataframe of species (cols) abundances by sites (rows). In case of \code{dims=1}, a plot of response species curves is produced. These curves do not include qualitative noise (\code{n.quali}), quantitative noise (see comments above) and 'marginal/vagrant species' (\code{add1}) additions. 
+\value{A dataframe of sites (rows) by species (cols) abundances. In case of \code{dims}=1, a plot of response species curves is produced. These curves do not include qualitative noise (\code{n.quali}), quantitative noise (see comments above) and 'marginal/vagrant species' (\code{add1}) additions. Notice that the number of species in the result dataframe may vary as i) some species may not be sampled by \code{coords}, or ii) species's range is located outside the sampling gradient (0-100).
 }
 
 \references{
@@ -50,7 +50,7 @@ Minchin, P.R. 1987b. COMPAS: a program for the simulation of multidimensional co
 
 \seealso{\code{\link[vegan]{vegdist}}}
 
-\note{As the function includes many parameters, many simulated communities will not mimic the real ones. Users should try different set of options to approxiamte real datasets. A start point may be the two examples provided below.
+\note{As the function includes many parameters, many simulated communities will not mimic the real ones. Users should try different set of options to approxiamte real datasets. A starting point may be the two examples provided below.
 }
 
 \examples{
