@@ -1,6 +1,6 @@
 ######### Export functions to users.
 export(autosimi, compas, 
-      part.m.phylo, part.p.phylo, 
+      part.m.tree, part.p.tree, 
       select.window, 
       treeNodf, treeNodf.test
 )
