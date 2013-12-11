@@ -2,7 +2,7 @@
 export(autosimi, compas, 
       part.m.tree, part.p.tree, 
       select.window, 
-      treeNodf, treeNodf.test
+      treeNodf, treeNodfTest
 )
 
 
@@ -14,4 +14,4 @@ import(vegan, picante)# entire packages imported.
 
 ######### S3 methods
 S3method(print, treeNodf) # one method per line
-S3method(print, treeNodf.test)
+S3method(print, treeNodfTest)

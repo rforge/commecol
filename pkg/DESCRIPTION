@@ -1,9 +1,9 @@
 Package: CommEcol
 Type: Package
 Title: Community Ecology Analyses
-Version: 1.5.8
+Version: 1.5.9
 Depends: vegan, picante
-Date: 2013-05-02
+Date: 2013-11-21
 Author: Adriano Sanches Melo
 Maintainer: Adriano Sanches Melo <asm.adrimelo@gmail.com>
 Description: Community Ecology Analyses. This should be a complement to available packages, particularly vegan. 
