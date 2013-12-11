@@ -1,17 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en   ">
+<!DOCTYPE html>
+<html>
 <head>
 <!-- saved from url=(0035)http://vegan.r-forge.r-project.org/ -->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>CommEcol - Community Ecology analyses</title>
-  <link href="./vegan_files/vegan.css" rel="stylesheet" type="text/css" />
-  <meta content="Adriano S. Melo" name="author" />
+ 
+<link href="./vegan_files/vegan.css" rel="stylesheet" type="text/css">
+  <meta content="Adriano S. Melo" name="author">
 </head>
 <body>
-<a href="http://www.r-project.org"><img
- style="border: 0px solid ; width: 100px; height: 76px;" alt="R"
- src="Rlogo.jpg" /></a><br />
-<br />
+<a href="http://www.r-project.org">
+<img style="border: 0px solid ; width: 100px; height: 76px;" alt="R" src="data:image;base64,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" uri="file:///home/aa/CommEcol/www/Rlogo.jpg">
+</a>
+<br>
+
+<br>
 <h1 style="font-family: Helvetica,Arial,sans-serif;">CommEcol -
 Community Ecology analyses</h1>
 <p style="font-family: Helvetica,Arial,sans-serif;"><big>CommEcol
@@ -19,8 +22,7 @@ includes
 functions to perform recently proposed analyses in
 community ecology as well as analyses not easily available in other R
 packages. It is intended to be a complement to major R packages,
-particularly <a href="http://vegan.r-forge.r-project.org"
- target="_blank">vegan</a>.</big></p>
+particularly <a href="http://vegan.r-forge.r-project.org" target="_blank">vegan</a>.</big></p>
 <p style="font-family: Helvetica,Arial,sans-serif;"><big>The first
 release
 of CommEcol was early May 2013 and it is still in
@@ -28,51 +30,59 @@ a development stage. That means that functions were not tested
 extensively and may produce errors. You can download CommEcol or
 install it using: install.packages("CommEcol",
 repos=c("http://r-forge.r-project.org", "http://cran-r.c3sl.ufpr.br"),
-dep=TRUE). See also the <a
- href="http://r-forge.r-project.org/projects/commecol/">summary</a>
-page at r-forge.<br />
+dep=TRUE). See also the <a href="http://r-forge.r-project.org/projects/commecol/">summary</a>
+page at r-forge.
+<br>
 </big></p>
-<big><br style="font-family: Helvetica,Arial,sans-serif;" />
-<span
- style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">The
+<big>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">The
 current version of CommEcol
-includes the functions:</span><br
- style="font-family: Helvetica,Arial,sans-serif;" />
-<br style="font-family: Helvetica,Arial,sans-serif;" />
+includes the functions:</span>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+
+<br style="font-family: Helvetica,Arial,sans-serif;">
 <span style="font-family: Helvetica,Arial,sans-serif;">==&gt; autosimi
-- AutoSimilarity curves </span><br
- style="font-family: Helvetica,Arial,sans-serif;" />
-<br style="font-family: Helvetica,Arial,sans-serif;" />
+- AutoSimilarity curves </span>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+
+<br style="font-family: Helvetica,Arial,sans-serif;">
 <span style="font-family: Helvetica,Arial,sans-serif;">==&gt; compas -
 Simulated communities obtained from species response
-curves (Minchin 1987, Vegetation 71:145-156)</span><br
- style="font-family: Helvetica,Arial,sans-serif;" />
-<br style="font-family: Helvetica,Arial,sans-serif;" />
+curves (Minchin 1987, Vegetation 71:145-156)</span>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+
+<br style="font-family: Helvetica,Arial,sans-serif;">
 <span style="font-family: Helvetica,Arial,sans-serif;">==&gt;
 part.m.tree, part.p.tree - Multiple and pair-wise of Sorensen,
 Jaccard as well as their turnover and richness-diference components of
 dissimilarity adapted to tree objects representing resemblance of
-descriptor variables</span><br
- style="font-family: Helvetica,Arial,sans-serif;" />
-<br style="font-family: Helvetica,Arial,sans-serif;" />
+descriptor variables</span>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+
+<br style="font-family: Helvetica,Arial,sans-serif;">
 <span style="font-family: Helvetica,Arial,sans-serif;">==&gt;
 select.window - selection of a site-by-species dataframe
-representing cells around a focal cell in a gridded dataframe.</span><br
- style="font-family: Helvetica,Arial,sans-serif;" />
-<br style="font-family: Helvetica,Arial,sans-serif;" />
+representing cells around a focal cell in a gridded dataframe.</span>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+
+<br style="font-family: Helvetica,Arial,sans-serif;">
 <span style="font-family: Helvetica,Arial,sans-serif;">==&gt; treeNODF
 - Nestedness for phylogenetic, functional and other
 diversity metrics based on resemblance of descriptor variables (Melo,
-Cianciaruso and Almeida-Neto, submitted).</span><br
- style="font-family: Helvetica,Arial,sans-serif;" />
-<br style="font-family: Helvetica,Arial,sans-serif;" />
-<br style="font-family: Helvetica,Arial,sans-serif;" />
-<span style="font-family: Helvetica,Arial,sans-serif;">Maintainer: </span><a
- style="font-family: Helvetica,Arial,sans-serif;"
- href="https://r-forge.r-project.org/users/adriano/">Adriano
-S. Melo</a><br style="font-family: Helvetica,Arial,sans-serif;" />
+Cianciaruso and Almeida-Neto, submitted).</span>
+<br style="font-family: Helvetica,Arial,sans-serif;">
+
+<br style="font-family: Helvetica,Arial,sans-serif;">
+
+<br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">Maintainer: </span><a style="font-family: Helvetica,Arial,sans-serif;" href="https://r-forge.r-project.org/users/adriano/">Adriano
+S. Melo</a>
+<br style="font-family: Helvetica,Arial,sans-serif;">
 <span style="font-family: Helvetica,Arial,sans-serif;">Last update of
-this page: 11 May 2013
+this page: 11 December 2013
 </span></big>
+
+
 </body>
 </html>
