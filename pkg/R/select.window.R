@@ -6,10 +6,10 @@ y<-xydata[,2]
 sele<-which(x>=(xf-radius) & x<=(xf+radius) &  y>=(yf-radius) & y<=(yf+radius) )
 n<-length(sele)
 
-if(n==1){selected<-xydata[sele,]
+if(n==1){selected<-matrix(xydata[sele,], nrow=1)
          columns<-c(1,2,which(selected>0))
          columns<-unique(columns)
-         resu<-selected[1,columns]}
+         resu<-matrix(selected[1,columns], nrow=1)}
         
 
 if(n>1){
@@ -23,3 +23,4 @@ if(n>1){
 
 return(resu)
 }
+

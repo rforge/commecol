@@ -1,11 +1,12 @@
-autosimi<-function(comm, method="bray", binary=FALSE, log.transf=FALSE, simi=TRUE, permutations=50){
+autosimi <- function(comm, method="bray", binary=FALSE, log.transf=FALSE, 
+                     simi=TRUE, permutations=50){
 
-n.samp<-nrow(comm)
-spp<-ncol(comm)
-size<-n.samp%/%2
-sizes<-1:size
+n.samp <- nrow(comm)
+spp    <- ncol(comm)
+size   <- n.samp%/%2
+sizes  <- 1:size
 
-resu.m<-matrix(,size,permutations)
+resu.m <- matrix(NA, size, permutations)
 
 for(i in 1:permutations){
    for(j in sizes){
@@ -28,11 +29,11 @@ for(i in 1:permutations){
    }#close for j
 }# close for i
 
-mean.perm<-rowMeans(resu.m)
-resu<-data.frame(sizes, mean.perm)
-indexes<-c("manhattan", "euclidean", "canberra", "bray", "kulczynski", "jaccard", "gower",
-           "altGower", "morisita", "horn", "mountford", "raup" , "binomial", "chao")
-colnames(resu)<-c("sample.size", indexes[pmatch(method,indexes)])
+mean.perm <- rowMeans(resu.m)
+resu <- data.frame(sizes, mean.perm)
+indexes <- c("manhattan", "euclidean", "canberra",      "bray", "kulczynski", "jaccard", "gower",
+              "altGower",  "morisita",     "horn", "mountford", "raup" , "binomial", "chao")
+colnames(resu) <- c("sample.size", indexes[pmatch(method,indexes)])
 return(resu)
 }
 

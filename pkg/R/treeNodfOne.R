@@ -32,7 +32,7 @@ for(i in 1:(sites - 1)) {
            one.s.fraction.par <- s.shared / sum(comm[j, ])
            
            comb <- ifelse(comb > 0, 1, 0)
-           comb <- matrix(comb, 1, )
+           comb <- matrix(comb, 1)
            colnames(comb) <- colnames(comm)
            pd.comb <- pd(comb, tree)$PD
            pd.shared <- pd.set + pd.subset - pd.comb

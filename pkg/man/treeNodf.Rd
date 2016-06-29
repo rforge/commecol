@@ -65,7 +65,7 @@ Faith, D.P. 1992. Conservation evaluation and phylogenetic diversity. Biological
 
 Lomolino, M.V. 1996. Investigatin causality of nestedness of insular communities: selective immigration or extinctions? Journal of Biogeography 23:699-703.  
 
-Melo, A.S., M.V. Cianciaruso & M. Almeida-Neto. Submitted. treeNODF: nestedness to phylogenetic, functional and other tree-based diversity metrics.
+Melo, A.S., M.V. Cianciaruso & M. Almeida-Neto. 2014. treeNODF: nestedness to phylogenetic, functional and other tree-based diversity metrics. Methods in Ecology and Evolution 5: 563-572.
 
 Petchey, O.L. & K.J. Gaston. 2006. Functional diversity: back to basics and looking forward. Ecology Letters 9:741-758.
 
@@ -79,18 +79,33 @@ Ulrich, W., M. Almeida-Neto & N.J. Gotelli. 2009. A comsumer's guide to nestedne
 library(picante)
 data(sites5.6)
 data(tree6)
-     treeNodf(sites5.6, col.tree=tree6, order.rows=FALSE)
+treeNodf    (sites5.6, col.tree=tree6, order.rows=FALSE)
 treeNodfTest(sites5.6, col.tree=tree6, order.rows=FALSE, null.model="perm.rows", permutations=99)
 
-alt5<-vegdist(1:5, method="euclidean")
-alt5<-hclust(alt5)
-alt5<-as.phylo(alt5)
+alt5 <- vegdist(1:5, method="euclidean")
+alt5 <- hclust(alt5)
+alt5 <- as.phylo(alt5)
 alt5$tip.label<-rownames(sites5.6)
-    treeNodf(sites5.6, row.tree=alt5, order.cols=FALSE)
+treeNodf    (sites5.6, row.tree=alt5, order.cols=FALSE)
 treeNodfTest(sites5.6, row.tree=alt5, order.cols=FALSE, null.model="perm.cols",permutations=99)
 
-    treeNodf(sites5.6, col.tree=tree6, order.rows=FALSE, row.tree=alt5, order.cols=FALSE)
+treeNodf    (sites5.6, col.tree=tree6, order.rows=FALSE, row.tree=alt5, order.cols=FALSE)
 treeNodfTest(sites5.6, col.tree=tree6, order.rows=FALSE, row.tree=alt5, order.cols=FALSE, null.model="perm.rc", permutations=99)
 treeNodfTest(sites5.6, col.tree=tree6, order.rows=FALSE, row.tree=alt5, order.cols=FALSE, null.model="ff", permutations=99)
+
+# In the example below treeNodf is zero because PD of the first sample is 
+# lower than that of the second sample. Notice samples have the same species 
+# richness and higher PD for the first sample is due to the presence of a
+# distinctive species (e).
+tree <- read.tree(text="(((a:1,b:1):1,(c:1,d:1):1):2, e:4);")
+plot(tree)
+mat  <- matrix(c(1,1,1,1,0, 1,1,1,0,1), byrow=TRUE, nrow=2, dimnames=list(1:2, letters[1:5]))
+mat
+pd(mat, tree)
+treeNodf(mat, tree) 
+
+# Here treeNodf is non-zero... but you would only do that if you have
+# an 'a priori' hypothesis to order rows of your matrix this way!
+treeNodf(mat[2:1, ], tree) 
 }
 

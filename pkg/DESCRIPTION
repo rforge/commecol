@@ -1,9 +1,10 @@
 Package: CommEcol
 Type: Package
 Title: Community Ecology Analyses
-Version: 1.5.9
-Depends: vegan, picante
-Date: 2013-11-21
+Version: 1.6.2
+Depends: vegan, ape, picante
+Imports: gmp
+Date: 2015-07-23
 Author: Adriano Sanches Melo
 Maintainer: Adriano Sanches Melo <asm.adrimelo@gmail.com>
 Description: Community Ecology Analyses. This should be a complement to available packages, particularly vegan. 
