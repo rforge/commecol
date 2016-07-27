@@ -57,7 +57,8 @@ for(i in 1:permutations){
    }
    
    if(null.model=="ff")        {
-      comm.aleat <- commsimulator(comm, method="quasiswap")
+      comm.aleat <- permatswap(comm, method="quasiswap",
+                               mtype="prab", times=1)$perm[[1]]
    }
 
    if(null.model=="perm.tip.cols"){
