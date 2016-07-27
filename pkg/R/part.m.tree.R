@@ -12,7 +12,7 @@ colnames(samp.comb) <- colnames(comm)
 i <- 1
    for (l in 1:(s - 1)) {
       for (k in (l + 1):s) {
-         samp.comb[i, ] <- colSums(comm[c(l,k), ]) #1 amostra com todas espécies amostras l e k.
+         samp.comb[i, ] <- colSums(comm[c(l,k), ]) #1 sample will all spp in samples l and k.
          i <- i + 1
         }
     }
