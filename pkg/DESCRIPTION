@@ -4,9 +4,9 @@ Title: Community Ecology Analyses
 Version: 1.6.4
 Depends: vegan, ape, picante
 Imports: gmp
-Date: 2016-07-28
+Date: 2017-11-16
 Author: Adriano Sanches Melo
 Maintainer: Adriano Sanches Melo <asm.adrimelo@gmail.com>
-Description: Autosimilarity curves, dissimilarity indexes that overweight rare species, phylogenetic and functional (pairwise and multisample) dissimilarity indexes and nestedness for phylogenetic, functional and other diversity metrics. This should be a complement to available packages, particularly 'vegan'. 
+Description: Autosimilarity curves, standardization of spatial extent of metacommunities, dissimilarity indexes that overweight rare species, phylogenetic and functional (pairwise and multisample) dissimilarity indexes and nestedness for phylogenetic, functional and other diversity metrics. This should be a complement to available packages, particularly 'vegan'. 
 License: GPL-2
 LazyLoad: yes
