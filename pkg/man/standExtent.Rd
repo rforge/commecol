@@ -10,8 +10,8 @@ standExtent(d.large, d.small, ini.large=NULL, ini.small=NULL)}
 \arguments{
   \item{d.large }{A square (symmetrical) or triangular distance matrix of the metacommunity with large spatial extent.}
   \item{d.small }{A square (symmetrical) or triangular distance matrix of the metacommunity with small spatial extent.}
-  \item{ini.large }{The first community to be used in the agregation process of the metacommunity with large spatial extent.}
-  \item{ini.small }{The first community to be used in the agregation process of the metacommunity with small spatial extent.}
+  \item{ini.large }{The first community to be used in the agregation process of the metacommunity with large spatial extent. Make sure it is present in \code{d.large}. If absent, a random  site will be used.}
+  \item{ini.small }{The first community to be used in the agregation process of the metacommunity with small spatial extent. Make sure it is present in \code{d.small}. If absent, a random  site will be used.}
 }
 
 \details{The standardized of spatial extent is done by selecting the same number of sites in both metacommunities using the criterion that within-metacommunity average distance among sites is similar. 
@@ -26,7 +26,7 @@ Users may specify initial sites in the accumulation process (steps 1 and 5 above
 
 }
 
-\value{A dataframe containing the names of the accumulated sites in both metacommunities, their within-metacommunity average distances and the percentage of difference in spatial extents. 
+\value{A dataframe containing the names of the accumulated sites in both metacommunities, their within-metacommunity average distances and the percentage of difference in spatial extents.
 }
 
 \references{
