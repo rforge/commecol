@@ -3,7 +3,7 @@ d.large <- as.matrix(d.large)
 d.small <- as.matrix(d.small)
 n.large <- nrow(d.large)
 n.small <- nrow(d.small)
-   
+
 if(is.null(rownames(d.large))){
    rownames(d.large) <- paste("l", 1:n.large, sep="")
 }
@@ -21,7 +21,7 @@ if(is.null(ini.small)){
    ini.small <- sample(names.small, 1)
 }
    
-resu <- matrix(, nrow=n.large, ncol=5)
+resu <- matrix(NA, nrow=n.large, ncol=5)
 resu <- as.data.frame(resu)
 colnames(resu) <- c("site.large", "dist.mean.large", 
                     "site.small", "dist.mean.small", "percent.dif")
@@ -40,12 +40,11 @@ ini2.small <- sort(abs(d.small[i1s.pos, -i1s.pos] - ini2.large))[1] #the ini.sma
 resu[2, "site.small"] <- names(ini2.small)
 resu[2, "dist.mean.small"] <- d.small[ini.small, names(ini2.small)]
    
+
+#                      ***** LARGE *****
 for(i in 3:n.large){
    set.large   <- resu[1:(i-1), "site.large"] # the set of sites selected so far.
-   set.small   <- resu[1:(i-1), "site.small"]
    names.large <- setdiff(names.large, set.large) # remove names present in the set.
-   names.small <- setdiff(names.small, set.small)
-   
    
       #  Obtain average distances among all members of a new LARGE set
       #  formed by each non-set site (site la) and the previous set.
@@ -64,11 +63,25 @@ for(i in 3:n.large){
    sel.large <- which.min(temp.large[, "dist.mean.large"])
    resu[i, "site.large"]      <- temp.large[sel.large, "site.large"]
    resu[i, "dist.mean.large"] <- temp.large[sel.large, "dist.mean.large"]
+} # closes for i. This will build the final result for the LARGE set.
    
+   
+
+#                      ***** SMALL *****
+if(n.large >= n.small){
+   n.aglo <- n.small
+}
+   else{
+      n.aglo <- n.large
+   }
+
+for(j in 3:n.aglo){
+   set.small   <- resu[1:(j-1), "site.small"]
+   names.small <- setdiff(names.small, set.small)
    
       #  Obtain average distances among all members of a new SMALL set
       #  formed by each non-set site (site sm) and the previous set.
-   temp.small <- matrix(, nrow=(n.small-(i-1)), ncol=2)
+   temp.small <- matrix(, nrow=(n.small-(j-1)), ncol=2)
    colnames(temp.small) <- c("site.small", "dist.mean.small")
    temp.small <- as.data.frame(temp.small)
    count <- 1
@@ -76,15 +89,15 @@ for(i in 3:n.large){
       temp.set.small <- c(set.small, sm) # the selected set so far and the "test" site.
       temp.d.small   <- d.small[temp.set.small, temp.set.small]
       temp.small[count, "site.small"] <- sm
-      temp.small[count, "dist.mean.small"] <- sum(temp.d.small) / (i*(i-1))
+      temp.small[count, "dist.mean.small"] <- sum(temp.d.small) / (j*(j-1))
       count <- count+1
    } # closes for sm. 
    
    sel.small <- which.min(abs(temp.small[ , "dist.mean.small"] - 
-                                    resu[i, "dist.mean.large"]  ))
-   resu[i, "site.small"]      <- temp.small[sel.small, "site.small"]
-   resu[i, "dist.mean.small"] <- temp.small[sel.small, "dist.mean.small"]
-} # closes for i. This will build the final result.
+                                    resu[j, "dist.mean.large"]  ))
+   resu[j, "site.small"]      <- temp.small[sel.small, "site.small"]
+   resu[j, "dist.mean.small"] <- temp.small[sel.small, "dist.mean.small"]
+} # closes for j. This will build the final result for the SMALL set.
 
 
 resu[, "percent.dif"] <- round(((resu[, "dist.mean.large"] - 
