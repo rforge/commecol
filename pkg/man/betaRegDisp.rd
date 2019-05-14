@@ -97,7 +97,7 @@ data(varechem)
 grad <- varechem[, "Baresoil"]
 resu <- betaRegDisp(y = varespec, x = grad, ws = 3, method.1 = "jaccard", 
             method.2 = "ruzicka", method.3 = "ruzicka", 
-            independent.data = FALSE, illust.plot = TRUE)
+            independent.data = FALSE, illust.plot = FALSE)
 
 #Plotting all the outputs of the function:
 op <- par(no.readonly = TRUE)
@@ -110,7 +110,8 @@ mtext("Environmental gradient", cex = 1.3, 1, 0, outer = TRUE)
 par(op)
 
 
-## Example 2. A simmulated community matrix with a known structure of increasing beta diversity by turnover
+## Example 2. A simmulated community matrix with a known structure of increasing
+##  beta diversity by turnover
 # n is the total sample sites
 # LocS is the number of spp per site
 # MaxS is the total number of spp in the matrix
@@ -123,7 +124,7 @@ par(op)
 # window size of 3 (ws=3) and a dataset of 10 samples, beta diversity for the
 # samples 1-3 will be much lower than for samples 8-10.   
 
-SimComm <- function(n = 54, MaxS = 116, LocS = 18){
+SimComm <- function(n = 21, MaxS = 40, LocS = 10){
     s <- seq (LocS, MaxS, length.out = n)
     mat <- matrix(0, n, MaxS, dimnames = 
                       list(paste("site", 1:n, sep = "_"), 
@@ -135,7 +136,7 @@ SimComm <- function(n = 54, MaxS = 116, LocS = 18){
     return(mat)
 }
 
-mat <- SimComm(n = 54, LocS = 18, MaxS = 116)
+mat <- SimComm(n = 21, MaxS = 40, LocS = 10)
 
 #Creating an environmental gradient:
 grad <- 1:nrow(mat)
@@ -144,7 +145,7 @@ b.resu <- betaRegDisp(y = mat, x = grad, xy.coord = NULL, ws = 3,
                       method.1 = "jaccard", 
                       method.2 = "ruzicka",
                       method.3 = "ruzicka", 
-                      independent.data = FALSE, illust.plot = TRUE)
+                      independent.data = FALSE, illust.plot = FALSE)
 
 ##Ploting all the output of the object for the simmulated community
 op <- par(no.readonly = TRUE)
