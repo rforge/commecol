@@ -91,26 +91,7 @@ Legendre, P. and M. De Caceres. 2013. Beta diversity as the variance of communit
 \seealso{\code{\link[vegan]{vegdist}}, \code{\link[vegan]{betadisper}}, \code{\link[adespatial]{beta.div}}, \code{\link[betapart]{beta.multi}}}
 
 \examples{
-##Example 1
-data(varespec)
-data(varechem)
-grad <- varechem[, "Baresoil"]
-resu <- betaRegDisp(y = varespec, x = grad, ws = 3, method.1 = "jaccard", 
-            method.2 = "ruzicka", method.3 = "ruzicka", 
-            independent.data = FALSE, illust.plot = FALSE)
-
-#Plotting all the outputs of the function:
-op <- par(no.readonly = TRUE)
-par(mfrow = c(5, 2), oma = c(1, 0, 1, 0.1), mar = c(1.5, 3, .1, .1), cex = 1, las = 0)
-for(i in 1:ncol(resu)){
-  plot(resu[, 1], resu[, i], ylab = colnames(resu)[i], cex.lab = .9, 
-       cex.axis = 0.9, tcl = -0.2, mgp = c(1.5, .2, 0), pch = 15, col = "grey")
-}
-mtext("Environmental gradient", cex = 1.3, 1, 0, outer = TRUE)
-par(op)
-
-
-## Example 2. A simmulated community matrix with a known structure of increasing
+## Example 1. A simmulated community matrix with a known structure of increasing
 ##  beta diversity by turnover
 # n is the total sample sites
 # LocS is the number of spp per site
@@ -124,7 +105,7 @@ par(op)
 # window size of 3 (ws=3) and a dataset of 10 samples, beta diversity for the
 # samples 1-3 will be much lower than for samples 8-10.   
 
-SimComm <- function(n = 21, MaxS = 40, LocS = 10){
+SimComm <- function(n = 21, MaxS = 30, LocS = 10){
     s <- seq (LocS, MaxS, length.out = n)
     mat <- matrix(0, n, MaxS, dimnames = 
                       list(paste("site", 1:n, sep = "_"), 
@@ -136,7 +117,7 @@ SimComm <- function(n = 21, MaxS = 40, LocS = 10){
     return(mat)
 }
 
-mat <- SimComm(n = 21, MaxS = 40, LocS = 10)
+mat <- SimComm(n = 21, MaxS = 30, LocS = 10)
 
 #Creating an environmental gradient:
 grad <- 1:nrow(mat)
@@ -156,5 +137,25 @@ for(i in 1:ncol(b.resu)){
 }
 mtext("Environmental gradient", cex = 1.3, 1, -0.1, outer = TRUE)
 par(op)
-
 }
+
+
+## Not run: 
+##Example 2
+data(varespec)
+data(varechem)
+grad <- varechem[, "Baresoil"]
+resu <- betaRegDisp(y = varespec, x = grad, ws = 3, method.1 = "jaccard", 
+            method.2 = "ruzicka", method.3 = "ruzicka", 
+            independent.data = FALSE, illust.plot = FALSE)
+
+#Plotting all the outputs of the function:
+op <- par(no.readonly = TRUE)
+par(mfrow = c(5, 2), oma = c(1, 0, 1, 0.1), mar = c(1.5, 3, .1, .1), cex = 1, las = 0)
+for(i in 1:ncol(resu)){
+  plot(resu[, 1], resu[, i], ylab = colnames(resu)[i], cex.lab = .9, 
+       cex.axis = 0.9, tcl = -0.2, mgp = c(1.5, .2, 0), pch = 15, col = "grey")
+}
+mtext("Environmental gradient", cex = 1.3, 1, 0, outer = TRUE)
+par(op)
+## End(Not run)
