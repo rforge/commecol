@@ -137,7 +137,7 @@ for(i in 1:ncol(b.resu)){
 }
 mtext("Environmental gradient", cex = 1.3, 1, -0.1, outer = TRUE)
 par(op)
-}
+
 
 
 ## Not run: 
@@ -159,3 +159,4 @@ for(i in 1:ncol(resu)){
 mtext("Environmental gradient", cex = 1.3, 1, 0, outer = TRUE)
 par(op)
 ## End(Not run)
+}
