@@ -139,7 +139,7 @@ mtext("Environmental gradient", cex = 1.3, 1, -0.1, outer = TRUE)
 par(op)
 
 
-
+\dontrun{
 ## Not run: 
 ##Example 2
 data(varespec)
@@ -159,4 +159,5 @@ for(i in 1:ncol(resu)){
 mtext("Environmental gradient", cex = 1.3, 1, 0, outer = TRUE)
 par(op)
 ## End(Not run)
+}
 }
