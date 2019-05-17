@@ -25,7 +25,7 @@ betaRegDisp <- function(y, x, xy.coords = NULL, ws = 3,
   if (independent.data && is.even(ws)==FALSE) SEQ <- seq (N+1,size-N,ws)
   
   n <- length(SEQ)
-  print(n)
+  #print(n)
   result <- matrix(0, n, 10)
   colnames(result) <- c("grad", "mean.grad",
                         "mean.diss.pairs", "mean.diss.focal", "mean.dist.cent",
@@ -108,7 +108,7 @@ betaRegDisp <- function(y, x, xy.coords = NULL, ws = 3,
       result[count, "SS.focal"] <- res.SS$LCBD[rownames(mat)[1]]*res.SS$beta["SStotal"]
       
       
-    cat (paste(n-count, 'points left to compute\n',sep=' '))
+    #cat (paste(n-count, 'points left to compute\n',sep=' '))
     count = count + 1
   }
   if(!is.null(xy.coords))result<-cbind(result,geo.dist)
